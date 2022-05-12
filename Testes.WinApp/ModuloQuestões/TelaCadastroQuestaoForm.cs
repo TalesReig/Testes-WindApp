@@ -21,7 +21,7 @@ namespace Testes.WinApp.ModuloQuestões
         }
         public Func<Questao, ValidationResult> GravarRegistro { get; set; }
 
-        public Questao Questao
+        public Questao Questao 
         {
             get
             {

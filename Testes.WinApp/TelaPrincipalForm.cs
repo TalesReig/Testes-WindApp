@@ -38,6 +38,7 @@ namespace Testes.WinApp
             //listagem.Dock = DockStyle.Fill;
             //PainelRegistros.Controls.Clear();
             //PainelRegistros.Controls.Add(listagem);
+            ConfiguracaoToolStripQuestoes();
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
 
@@ -47,6 +48,7 @@ namespace Testes.WinApp
             //PainelRegistros.Controls.Clear();
             //PainelRegistros.Controls.Add(listagem);
             //ConfiguracaoToolStripDisciplina();
+            ConfiguracaoToolStripMateria();
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
             //controlador = controladores["Matérias"];
         }
@@ -86,12 +88,12 @@ namespace Testes.WinApp
             btnExcluir.ToolTipText = "Excluir Questão";
         }
 
-        private void ConfiguracaoToolStripDisciplina()
+        private void ConfiguracaoToolStripMateria()
         {
             btnPDF.Visible = false;
-            btnCadastrar.ToolTipText = "Cadastrar Disciplina";
-            btnEditar.ToolTipText = "Editar Disciplina";
-            btnExcluir.ToolTipText = "Excluir Disciplina";
+            btnCadastrar.ToolTipText = "Cadastrar Materia";
+            btnEditar.ToolTipText = "Editar Materia";
+            btnExcluir.ToolTipText = "Excluir Materia";
         }
 
         private void ConfiguracaoToolStripTestes()
