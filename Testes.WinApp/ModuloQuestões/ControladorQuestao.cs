@@ -15,7 +15,6 @@ namespace Testes.WinApp.ModuloQuestões
         private RepositorioQestaoEmArquivo repositorioQestao;
         private TabelaQuestaoControl tabelaQuestaos;
 
-
         public ControladorQuestao(RepositorioQestaoEmArquivo repositorioQestao)
         {
             this.repositorioQestao = repositorioQestao;

@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 using Testes.Infra.Arquivos.Compartilhado.Serializadores;
 using Testes.Dominio.ModuloMatérias;
 using Testes.Dominio.ModuloQuestao;
+using Testes.Dominio.ModuloTeste;
 
 namespace Testes.Infra.Arquivos.Compartilhado
 {
     [Serializable]
-    public class DataContext //Container
+    public class DataContext
     {
         private readonly ISerializador serializador;
         public List<Materia> Materia { get; set; }
 
         public List<Questao> Questao { get; set; }
 
-        //public List<Teste> Teste { get; set; }
+        public List<Teste> Teste { get; set; }
 
         public DataContext()
         {
@@ -25,9 +26,7 @@ namespace Testes.Infra.Arquivos.Compartilhado
 
             Questao = new List<Questao>();
 
-            //Compromissos = new List<Compromisso>();
-
-            //Despesas = new List<Despesa>();
+            Teste = new List<Teste>();
         }
 
         public DataContext(ISerializador serializador) : this()
@@ -52,14 +51,9 @@ namespace Testes.Infra.Arquivos.Compartilhado
             if (ctx.Questao.Any())
                 this.Questao.AddRange(ctx.Questao);
 
-            //if (ctx.Contatos.Any())
-            //    this.Contatos.AddRange(ctx.Contatos);
-            //
-            //if (ctx.Compromissos.Any())
-            //    this.Compromissos.AddRange(ctx.Compromissos);
-            //
-            //if (ctx.Despesas.Any())
-            //    this.Despesas.AddRange(ctx.Despesas);
+            if (ctx.Teste.Any())
+                this.Teste.AddRange(ctx.Teste);
         }
+
     }
 }

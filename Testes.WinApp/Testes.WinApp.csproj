@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ModuloTestes\**" />
+    <EmbeddedResource Remove="ModuloTestes\**" />
+    <None Remove="ModuloTestes\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Testes.Dominio\Testes.Dominio.csproj" />
     <ProjectReference Include="..\Testes.Infra.Arquivos\Testes.Infra.Arquivos.csproj" />
   </ItemGroup>
@@ -25,10 +31,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ModuloTestes\" />
   </ItemGroup>
 
 </Project>

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalForm));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.MenuStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +43,7 @@
             this.btnPDF = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.PainelRegistros = new System.Windows.Forms.Panel();
+            this.btnDuplicar = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -76,21 +78,21 @@
             // questoesMenuItem
             // 
             this.questoesMenuItem.Name = "questoesMenuItem";
-            this.questoesMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.questoesMenuItem.Size = new System.Drawing.Size(139, 24);
             this.questoesMenuItem.Text = "Questões";
             this.questoesMenuItem.Click += new System.EventHandler(this.questõesMenuItem_Click);
             // 
             // matériasMenuItem
             // 
             this.matériasMenuItem.Name = "matériasMenuItem";
-            this.matériasMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.matériasMenuItem.Size = new System.Drawing.Size(139, 24);
             this.matériasMenuItem.Text = "Matérias";
             this.matériasMenuItem.Click += new System.EventHandler(this.matériasMenuItem_Click);
             // 
             // provasMenuItem
             // 
             this.provasMenuItem.Name = "provasMenuItem";
-            this.provasMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.provasMenuItem.Size = new System.Drawing.Size(139, 24);
             this.provasMenuItem.Text = "Provas";
             this.provasMenuItem.Click += new System.EventHandler(this.provasMenuItem_Click);
             // 
@@ -101,6 +103,7 @@
             this.btnCadastrar,
             this.btnEditar,
             this.btnExcluir,
+            this.btnDuplicar,
             this.btnPDF});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
@@ -176,6 +179,16 @@
             this.PainelRegistros.Size = new System.Drawing.Size(1015, 412);
             this.PainelRegistros.TabIndex = 4;
             // 
+            // btnDuplicar
+            // 
+            this.btnDuplicar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDuplicar.Image = ((System.Drawing.Image)(resources.GetObject("btnDuplicar.Image")));
+            this.btnDuplicar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDuplicar.Name = "btnDuplicar";
+            this.btnDuplicar.Size = new System.Drawing.Size(34, 44);
+            this.btnDuplicar.Text = "toolStripButton1";
+            this.btnDuplicar.Click += new System.EventHandler(this.btnDuplicar_Click);
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -215,5 +228,6 @@
         private System.Windows.Forms.ToolStripButton btnExcluir;
         private System.Windows.Forms.ToolStripButton btnPDF;
         private System.Windows.Forms.ToolStripMenuItem questoesMenuItem;
+        private System.Windows.Forms.ToolStripButton btnDuplicar;
     }
 }
