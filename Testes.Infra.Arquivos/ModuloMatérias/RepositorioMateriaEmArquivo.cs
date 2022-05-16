@@ -15,11 +15,16 @@ namespace Testes.Infra.Arquivos.ModuloMatérias
     {
         public RepositorioMateriaEmArquivo(DataContext dataContext) : base(dataContext)
         {
+            if(dataContext.Materias != null && dataContext.Materias.Count > 0)
+            {
+                this.contador = dataContext.Materias.Max(x => x.Numero);
+            }
+
         }
 
         public override List<Materia> ObterRegistros()
         {
-            return dataContext.Materia;
+            return dataContext.Materias;
         }
 
         public override AbstractValidator<Materia> ObterValidador()

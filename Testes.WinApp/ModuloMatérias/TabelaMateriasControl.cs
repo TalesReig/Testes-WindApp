@@ -32,17 +32,18 @@ namespace Testes.WinApp.ModuloMatérias
 
             foreach (Materia m in materias)
             {
-                tabelaMaterias.Rows.Add(m.Numero, m.nome);
+                tabelaMaterias.Rows.Add(m.Numero,m.disciplina, m.nome, m.turma);
             }
         }
 
         public DataGridViewColumn[] ObterColunas()
         {
             var colunas = new DataGridViewColumn[]
-            {
-                new DataGridViewTextBoxColumn { DataPropertyName = "Numero", HeaderText = "Número"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "Titulo", HeaderText = "Título"},
+            {   
+                new DataGridViewTextBoxColumn { DataPropertyName = "Numero", HeaderText = "ID"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Disciplina", HeaderText = "Disciplina"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Materia", HeaderText = "Matéria"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Serie", HeaderText = "Série"},
             };
 
             return colunas;

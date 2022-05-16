@@ -14,7 +14,7 @@ namespace Testes.WinApp.Compartilhado
         public abstract void Excluir();
         public abstract UserControl ObtemListagem();
         public virtual void Duplicar() { }
-        public virtual void SalvarEmPDF() { }
+        public virtual void GerarPDF() { }
 
     }
 }

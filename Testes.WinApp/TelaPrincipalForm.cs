@@ -28,18 +28,27 @@ namespace Testes.WinApp
         public TelaPrincipalForm(DataContext contextoDados)
         {
             InitializeComponent();
-
+            Instancia = this;
+            labelRodape.Text = string.Empty;
+            //labelTipoCadastro.Text = string.Empty;
+            ConfiguracaoToolStripTelaInicial();
             this.contextoDados = contextoDados;
             InicializarControladores();
         }
 
+        public static TelaPrincipalForm Instancia
+        {
+            get;
+            private set;
+        }
+
+        public void AtualizarRodape(string mensagem)
+        {
+            labelRodape.Text = mensagem;
+        }
+
         private void questõesMenuItem_Click(object sender, EventArgs e)
         {
-            //TabelaQuestaoControl listagem = new TabelaQuestaoControl();
-            //ConfiguracaoToolStripQuestoes();
-            //listagem.Dock = DockStyle.Fill;
-            //PainelRegistros.Controls.Clear();
-            //PainelRegistros.Controls.Add(listagem);
             ConfiguracaoToolStripQuestoes();
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
@@ -70,6 +79,7 @@ namespace Testes.WinApp
         {
             controlador.Excluir();
         }
+
         private void btnDuplicar_Click(object sender, EventArgs e)
         {
             controlador.Duplicar();
@@ -77,13 +87,16 @@ namespace Testes.WinApp
 
         private void btnPDF_Click(object sender, EventArgs e)
         {
-            controlador.SalvarEmPDF();
+            controlador.GerarPDF();
         }
 
         #region métodos privados
 
         private void ConfiguracaoToolStripQuestoes()
         {
+            btnCadastrar.Visible = true;
+            btnEditar.Visible = true;
+            btnExcluir.Visible = true;
             btnPDF.Visible = false;
             btnDuplicar.Visible = false;
             btnCadastrar.ToolTipText = "Cadastrar Questão";
@@ -93,6 +106,9 @@ namespace Testes.WinApp
 
         private void ConfiguracaoToolStripMateria()
         {
+            btnCadastrar.Visible = true;
+            btnEditar.Visible = true;
+            btnExcluir.Visible = true;
             btnPDF.Visible = false;
             btnDuplicar.Visible = false;
             btnCadastrar.ToolTipText = "Cadastrar Materia";
@@ -102,11 +118,23 @@ namespace Testes.WinApp
 
         private void ConfiguracaoToolStripTestes()
         {
+            btnCadastrar.Visible = true;
+            btnEditar.Visible = true;
+            btnExcluir.Visible = true;
             btnPDF.Visible = true;
             btnDuplicar.Visible = true;
             btnCadastrar.ToolTipText = "Cadastrar Teste";
             btnEditar.ToolTipText = "Editar Teste";
             btnExcluir.ToolTipText = "Excluir Teste";
+        }
+
+        private void ConfiguracaoToolStripTelaInicial()
+        {
+            btnCadastrar.Visible = false;
+            btnEditar.Visible = false;
+            btnExcluir.Visible = false;
+            btnDuplicar.Visible = false;
+            btnPDF.Visible = false;
         }
 
         private void InicializarControladores()
@@ -118,13 +146,13 @@ namespace Testes.WinApp
             controladores = new Dictionary<string, ControladorBase>();
             
             controladores.Add("Matérias", new ControladorMateria(repositorioMateria));
-            controladores.Add("Questões", new ControladorQuestao(repositorioQuestao));
-            controladores.Add("Provas", new ControladorTeste(repositorioTeste));
+            controladores.Add("Questões", new ControladorQuestao(repositorioQuestao,repositorioMateria));
+            controladores.Add("Provas", new ControladorTeste(repositorioTeste, repositorioMateria, repositorioQuestao));
         }
 
         private void ConfigurarListagem()
         {
-            //AtualizarRodape("");
+            AtualizarRodape("");
 
             var listagemControl = controlador.ObtemListagem();
 
@@ -140,8 +168,6 @@ namespace Testes.WinApp
             var tipo = opcaoSelecionada.Text;
 
             controlador = controladores[tipo];
-
-            //ConfigurarToolbox();
 
             ConfigurarListagem();
         }

@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="iTextSharp" Version="5.5.13.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Testes.Dominio\Testes.Dominio.csproj" />
     <ProjectReference Include="..\Testes.Infra.Arquivos\Testes.Infra.Arquivos.csproj" />
   </ItemGroup>

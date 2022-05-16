@@ -13,18 +13,25 @@ namespace Testes.Infra.Arquivos.ModuloTeste
     {
         public RepositorioTesteEmArquivo(DataContext dataContext) : base(dataContext)
         {
+            if (dataContext.Testes != null && dataContext.Testes.Count > 0)
+            {
+                this.contador = dataContext.Testes.Max(x => x.Numero);
+            }
         }
 
-        public ValidationResult Duplicar(Teste registro)
+        public ValidationResult Duplicar(Teste novoRegistro)
         {
             var validator = ObterValidador();
 
-            var resultadoValidacao = validator.Validate(registro);
+            var resultadoValidacao = validator.Validate(novoRegistro);
 
             if (resultadoValidacao.IsValid)
             {
+                novoRegistro.Numero = ++contador;
+
                 var registros = ObterRegistros();
-                registros.Add(registro);
+
+                registros.Add(novoRegistro);
             }
 
             return resultadoValidacao;
@@ -33,7 +40,7 @@ namespace Testes.Infra.Arquivos.ModuloTeste
 
         public override List<Teste> ObterRegistros()
         {
-            return dataContext.Teste;
+            return dataContext.Testes;
         }
 
         public override AbstractValidator<Teste> ObterValidador()

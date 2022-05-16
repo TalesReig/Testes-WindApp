@@ -32,7 +32,7 @@ namespace Testes.WinApp.ModuloQuestões
 
             foreach (Questao m in materias)
             {
-                tabelaQuestoes.Rows.Add(m.Numero, m.disciplina, m.materia, m.titulo);
+                tabelaQuestoes.Rows.Add(m.Numero, m.titulo, m.disciplina, m.materia );
             }
         }
 

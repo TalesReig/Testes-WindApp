@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Testes.Dominio.ModuloMatérias
 {
-    public enum DisciplinaEnum
+    public enum SerieEnum
     {
-        Matemática = 1, Português = 2, História = 3, Geografia = 4,
+        Primeira = 1, Segunda = 2
     }
 }

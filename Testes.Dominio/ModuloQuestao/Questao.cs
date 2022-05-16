@@ -15,14 +15,20 @@ namespace Testes.Dominio.ModuloQuestao
         public DisciplinaEnum disciplina { get; set; }
         public string titulo { get; set; }
         public string enunciado { get; set; }
-        public List<string> alternativas { get; set; }
+        public string a { get; set; }
+        public string b { get; set; }
+        public string c { get; set; }
+        public string d { get; set; }
         public string gabarito { get; set; }
 
         public override void Atualizar(Questao registro)
         {
             this.materia = registro.materia;
             this.enunciado = registro.enunciado;
-            this.alternativas = registro.alternativas;
+            this.a = registro.a;
+            this.b = registro.b;
+            this.c = registro.c;
+            this.d = registro.d;
             this.gabarito = registro.gabarito;
 
         }

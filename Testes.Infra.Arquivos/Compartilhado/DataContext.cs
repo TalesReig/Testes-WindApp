@@ -14,19 +14,19 @@ namespace Testes.Infra.Arquivos.Compartilhado
     public class DataContext
     {
         private readonly ISerializador serializador;
-        public List<Materia> Materia { get; set; }
+        public List<Materia> Materias { get; set; }
 
-        public List<Questao> Questao { get; set; }
+        public List<Questao> Quetoes { get; set; }
 
-        public List<Teste> Teste { get; set; }
+        public List<Teste> Testes { get; set; }
 
         public DataContext()
         {
-            Materia = new List<Materia>();
+            Materias = new List<Materia>();
 
-            Questao = new List<Questao>();
+            Quetoes = new List<Questao>();
 
-            Teste = new List<Teste>();
+            Testes = new List<Teste>();
         }
 
         public DataContext(ISerializador serializador) : this()
@@ -45,14 +45,14 @@ namespace Testes.Infra.Arquivos.Compartilhado
         {
             var ctx = serializador.CarregarDadosDoArquivo();
 
-            if (ctx.Materia.Any())
-                this.Materia.AddRange(ctx.Materia);
+            if (ctx.Materias.Any())
+                this.Materias.AddRange(ctx.Materias);
 
-            if (ctx.Questao.Any())
-                this.Questao.AddRange(ctx.Questao);
+            if (ctx.Quetoes.Any())
+                this.Quetoes.AddRange(ctx.Quetoes);
 
-            if (ctx.Teste.Any())
-                this.Teste.AddRange(ctx.Teste);
+            if (ctx.Testes.Any())
+                this.Testes.AddRange(ctx.Testes);
         }
 
     }

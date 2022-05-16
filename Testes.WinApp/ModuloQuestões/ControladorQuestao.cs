@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Testes.Dominio.ModuloMatérias;
 using Testes.Dominio.ModuloQuestao;
+using Testes.Infra.Arquivos.ModuloMatérias;
 using Testes.Infra.Arquivos.ModuloQuestao;
 using Testes.WinApp.Compartilhado;
 
@@ -12,17 +14,20 @@ namespace Testes.WinApp.ModuloQuestões
 {
     public class ControladorQuestao : ControladorBase
     {
+        private RepositorioMateriaEmArquivo repositorioMateria;
         private RepositorioQestaoEmArquivo repositorioQestao;
         private TabelaQuestaoControl tabelaQuestaos;
 
-        public ControladorQuestao(RepositorioQestaoEmArquivo repositorioQestao)
+        public ControladorQuestao(RepositorioQestaoEmArquivo repositorioQestao, RepositorioMateriaEmArquivo repositorioMateria)
         {
             this.repositorioQestao = repositorioQestao;
+            this.repositorioMateria = repositorioMateria;
         }
 
         public override void Inserir()
         {
-            TelaCadastroQuestaoForm tela = new TelaCadastroQuestaoForm();
+            List<Materia> Materias = repositorioMateria.SelecionarTodos();
+            TelaCadastroQuestaoForm tela = new TelaCadastroQuestaoForm(Materias);
             tela.Questao = new Questao();
 
             tela.GravarRegistro = repositorioQestao.Inserir;
@@ -45,8 +50,8 @@ namespace Testes.WinApp.ModuloQuestões
                 "Edição de Tarefas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
-            TelaCadastroQuestaoForm tela = new TelaCadastroQuestaoForm();
+            List<Materia> Materias = repositorioMateria.SelecionarTodos();
+            TelaCadastroQuestaoForm tela = new TelaCadastroQuestaoForm(Materias);
 
             tela.Questao = QuestaoSelecionada;
 

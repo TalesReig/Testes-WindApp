@@ -12,8 +12,8 @@ namespace Testes.Dominio.ModuloMatérias
     {
         public string nome { get; set; }
         public DisciplinaEnum disciplina { get; set; }
+        public SerieEnum turma { get; set; }
         public List<Questao> questoes { get; set; }
-        public string turma { get; set; }
 
         public Materia()
         {
@@ -22,7 +22,14 @@ namespace Testes.Dominio.ModuloMatérias
         public override void Atualizar(Materia registro)
         {
             this.nome = registro.nome;
+            this.disciplina = registro.disciplina;
+            this.questoes = registro.questoes;
+            this.turma = registro.turma;
         }
-        
+
+        public override string ToString()
+        {
+            return nome;
+        }
     }
 }

@@ -10,10 +10,16 @@ namespace Testes.Dominio.ModuloTeste
     public class ValidadorTeste : AbstractValidator<Teste>
     {
         public ValidadorTeste()
-        {
-            //implementar o resto das condições de crud;
-
+        { 
             RuleFor(x => x.titulo).NotNull().NotEmpty();
+
+            RuleFor(x => x.qntQuestoes).NotNull().NotEmpty();
+
+            RuleFor(x => x.turma).NotNull().NotEmpty();
+
+            RuleFor(x => x.disciplinaEnum).NotNull().NotEmpty();
+
+            RuleFor(x => x.materia).NotNull().NotEmpty();
         }
     }
 }

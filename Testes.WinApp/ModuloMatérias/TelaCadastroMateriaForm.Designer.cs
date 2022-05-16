@@ -67,6 +67,11 @@
             // 
             // cbx_Disciplinas
             // 
+            this.cbx_Disciplinas.AutoCompleteCustomSource.AddRange(new string[] {
+            "Teste1",
+            "Teste2",
+            "Teste3"});
+            this.cbx_Disciplinas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Disciplinas.FormattingEnabled = true;
             this.cbx_Disciplinas.Location = new System.Drawing.Point(79, 36);
             this.cbx_Disciplinas.Name = "cbx_Disciplinas";
@@ -103,6 +108,7 @@
             // 
             // cbx_Turma
             // 
+            this.cbx_Turma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Turma.FormattingEnabled = true;
             this.cbx_Turma.Location = new System.Drawing.Point(79, 94);
             this.cbx_Turma.Name = "cbx_Turma";

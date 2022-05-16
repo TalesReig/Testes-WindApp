@@ -40,10 +40,10 @@
             this.btnCadastrar = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
-            this.btnPDF = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.PainelRegistros = new System.Windows.Forms.Panel();
             this.btnDuplicar = new System.Windows.Forms.ToolStripButton();
+            this.btnPDF = new System.Windows.Forms.ToolStripButton();
+            this.labelRodape = new System.Windows.Forms.StatusStrip();
+            this.PainelRegistros = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -120,7 +120,7 @@
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Padding = new System.Windows.Forms.Padding(5);
             this.btnCadastrar.Size = new System.Drawing.Size(44, 44);
-            this.btnCadastrar.Text = "toolStripButton1";
+            this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.ToolTipText = "Cadastrar";
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
@@ -133,7 +133,7 @@
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Padding = new System.Windows.Forms.Padding(5);
             this.btnEditar.Size = new System.Drawing.Size(44, 44);
-            this.btnEditar.Text = "toolStripButton2";
+            this.btnEditar.Text = "Editar";
             this.btnEditar.ToolTipText = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -146,9 +146,19 @@
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Padding = new System.Windows.Forms.Padding(5);
             this.btnExcluir.Size = new System.Drawing.Size(44, 44);
-            this.btnExcluir.Text = "toolStripButton3";
+            this.btnExcluir.Text = "Excluir";
             this.btnExcluir.ToolTipText = "Excluir";
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnDuplicar
+            // 
+            this.btnDuplicar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDuplicar.Image = ((System.Drawing.Image)(resources.GetObject("btnDuplicar.Image")));
+            this.btnDuplicar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDuplicar.Name = "btnDuplicar";
+            this.btnDuplicar.Size = new System.Drawing.Size(34, 44);
+            this.btnDuplicar.Text = "Duplicar";
+            this.btnDuplicar.Click += new System.EventHandler(this.btnDuplicar_Click);
             // 
             // btnPDF
             // 
@@ -159,17 +169,17 @@
             this.btnPDF.Name = "btnPDF";
             this.btnPDF.Padding = new System.Windows.Forms.Padding(5);
             this.btnPDF.Size = new System.Drawing.Size(44, 44);
-            this.btnPDF.Text = "toolStripButton4";
+            this.btnPDF.Text = "Salvar Em PDF";
             this.btnPDF.ToolTipText = "Salvar Em PDF";
             this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
             // 
-            // statusStrip1
+            // labelRodape
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 487);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1015, 22);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
+            this.labelRodape.Location = new System.Drawing.Point(0, 487);
+            this.labelRodape.Name = "labelRodape";
+            this.labelRodape.Size = new System.Drawing.Size(1015, 22);
+            this.labelRodape.TabIndex = 3;
+            this.labelRodape.Text = "statusStrip1";
             // 
             // PainelRegistros
             // 
@@ -179,23 +189,13 @@
             this.PainelRegistros.Size = new System.Drawing.Size(1015, 412);
             this.PainelRegistros.TabIndex = 4;
             // 
-            // btnDuplicar
-            // 
-            this.btnDuplicar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnDuplicar.Image = ((System.Drawing.Image)(resources.GetObject("btnDuplicar.Image")));
-            this.btnDuplicar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDuplicar.Name = "btnDuplicar";
-            this.btnDuplicar.Size = new System.Drawing.Size(34, 44);
-            this.btnDuplicar.Text = "toolStripButton1";
-            this.btnDuplicar.Click += new System.EventHandler(this.btnDuplicar_Click);
-            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1015, 509);
             this.Controls.Add(this.PainelRegistros);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.labelRodape);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -221,7 +221,7 @@
         private System.Windows.Forms.ToolStripMenuItem matériasMenuItem;
         private System.Windows.Forms.ToolStripMenuItem provasMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip labelRodape;
         private System.Windows.Forms.Panel PainelRegistros;
         private System.Windows.Forms.ToolStripButton btnCadastrar;
         private System.Windows.Forms.ToolStripButton btnEditar;

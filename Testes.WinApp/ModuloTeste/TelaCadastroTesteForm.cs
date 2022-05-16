@@ -8,16 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Testes.Dominio.ModuloMatérias;
 using Testes.Dominio.ModuloTeste;
 
 namespace Testes.WinApp.ModuloTeste
 {
     public partial class TelaCadastroTesteForm : Form
     {
+        //public RepositorioQuestao repositorioQuestao;
+        public List<Materia> Materias;
         public Teste teste;
-        public TelaCadastroTesteForm()
+
+        public TelaCadastroTesteForm(List<Materia> materias)
         {
+            Materias = materias;
             InitializeComponent();
+            CarregarDisciplinas();
         }
 
         public Func<Teste, ValidationResult> GravarRegistro { get; set; }
@@ -32,12 +38,35 @@ namespace Testes.WinApp.ModuloTeste
             {
                 teste = value;
                 txtTitulo.Text = teste.titulo;
+                txtQuestoes.Text = teste.Numero.ToString();
+                if(teste.turma == "Primeira Série")
+                {
+                    btn1.Checked = true;
+                }
+                else
+                {
+                    btn2.Checked = false;
+                }
+                cbxDisciplina.SelectedItem = teste.disciplinaEnum;
+                cbxMateria.SelectedItem = teste.materia;
             }
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             teste.titulo = txtTitulo.Text;
+            int n = Convert.ToInt32(txtQuestoes.Text);
+            teste.qntQuestoes = n;
+            if (btn1.Checked)
+            {
+                teste.turma = "Primeira Série";
+            }
+            else
+            {
+                teste.turma = "Segunda Série";
+            }
+            teste.disciplinaEnum = (DisciplinaEnum)cbxDisciplina.SelectedItem;
+            teste.materia = (Materia)cbxMateria.SelectedItem;
 
             var resultadoValidacao = GravarRegistro(teste);
 
@@ -45,25 +74,38 @@ namespace Testes.WinApp.ModuloTeste
             {
                 string erro = resultadoValidacao.Errors[0].ErrorMessage;
 
-                //TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
 
                 DialogResult = DialogResult.None;
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void CarregarDisciplinas()
         {
-            teste.titulo = txtTitulo.Text;
-
-            var resultadoValidacao = GravarRegistro(teste);
-
-            if (resultadoValidacao.IsValid == false)
+            cbxDisciplina.Items.Clear();
+            foreach (int i in Enum.GetValues(typeof(DisciplinaEnum)))
             {
-                string erro = resultadoValidacao.Errors[0].ErrorMessage;
+                cbxDisciplina.Items.Add((DisciplinaEnum)i);
+            }
+        }
 
-                //TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+        private void cbxDisciplina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisciplinaEnum disciplina = (DisciplinaEnum)cbxDisciplina.SelectedItem;
+            CarregarMaterias(Materias, disciplina);
+        }
 
-                DialogResult = DialogResult.None;
+        private void CarregarMaterias(List<Materia> Materias, DisciplinaEnum disciplina)
+        {
+            cbxMateria.Items.Clear();
+            cbxMateria.Text = "";
+
+            foreach (Materia materia in Materias)
+            {
+                if (materia.disciplina == disciplina)
+                {
+                    cbxMateria.Items.Add(materia);
+                }
             }
         }
     }

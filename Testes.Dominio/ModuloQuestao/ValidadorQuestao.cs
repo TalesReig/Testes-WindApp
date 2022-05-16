@@ -11,9 +11,21 @@ namespace Testes.Dominio.ModuloQuestao
     {
         public ValidadorQuestao()
         {
-            //implementar o resto das condições de crud;
-
             RuleFor(x => x.titulo).NotNull().NotEmpty();
+
+            RuleFor(x => x.disciplina).NotNull().NotEmpty();
+
+            RuleFor(x => x.materia).NotNull().NotEmpty();
+
+            RuleFor(x => x.enunciado).NotNull().NotEmpty();
+
+            RuleFor(x => x.a).NotNull().NotEmpty().NotEqual(x => x.b).NotEqual(x => x.c).NotEqual(x => x.d);
+
+            RuleFor(x => x.b).NotNull().NotEmpty().NotEqual(x => x.a).NotEqual(x => x.c).NotEqual(x => x.d);
+
+            RuleFor(x => x.c).NotNull().NotEmpty().NotEqual(x => x.a).NotEqual(x => x.b).NotEqual(x => x.d);
+
+            RuleFor(x => x.d).NotNull().NotEmpty().NotEqual(x => x.a).NotEqual(x => x.b).NotEqual(x => x.c);
         }
     }
 }

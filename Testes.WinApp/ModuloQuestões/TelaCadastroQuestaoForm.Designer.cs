@@ -81,14 +81,17 @@
             // 
             // cbxDisciplina
             // 
+            this.cbxDisciplina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDisciplina.FormattingEnabled = true;
             this.cbxDisciplina.Location = new System.Drawing.Point(75, 18);
             this.cbxDisciplina.Name = "cbxDisciplina";
             this.cbxDisciplina.Size = new System.Drawing.Size(329, 23);
             this.cbxDisciplina.TabIndex = 3;
+            this.cbxDisciplina.SelectedIndexChanged += new System.EventHandler(this.cbxDisciplina_SelectedIndexChanged);
             // 
             // cbxMateria
             // 
+            this.cbxMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMateria.FormattingEnabled = true;
             this.cbxMateria.Location = new System.Drawing.Point(75, 54);
             this.cbxMateria.Name = "cbxMateria";
@@ -203,6 +206,7 @@
             // 
             // cbxGabarito
             // 
+            this.cbxGabarito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxGabarito.FormattingEnabled = true;
             this.cbxGabarito.Location = new System.Drawing.Point(75, 465);
             this.cbxGabarito.Name = "cbxGabarito";
@@ -257,7 +261,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TelaCadastroQuestaoForm";
-            this.Text = "TelaCadastroMateriaForm";
+            this.Text = "TelaCadastroQuestaoForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

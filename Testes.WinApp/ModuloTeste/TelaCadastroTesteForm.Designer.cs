@@ -66,14 +66,17 @@
             // 
             // cbxDisciplina
             // 
+            this.cbxDisciplina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDisciplina.FormattingEnabled = true;
             this.cbxDisciplina.Location = new System.Drawing.Point(70, 172);
             this.cbxDisciplina.Name = "cbxDisciplina";
             this.cbxDisciplina.Size = new System.Drawing.Size(205, 23);
             this.cbxDisciplina.TabIndex = 3;
+            this.cbxDisciplina.SelectedIndexChanged += new System.EventHandler(this.cbxDisciplina_SelectedIndexChanged);
             // 
             // cbxMateria
             // 
+            this.cbxMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMateria.FormattingEnabled = true;
             this.cbxMateria.Location = new System.Drawing.Point(70, 208);
             this.cbxMateria.Name = "cbxMateria";
@@ -166,7 +169,6 @@
             this.btnCancelar.TabIndex = 30;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtQuestoes
             // 

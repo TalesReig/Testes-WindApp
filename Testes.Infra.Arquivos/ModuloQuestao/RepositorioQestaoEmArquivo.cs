@@ -13,11 +13,15 @@ namespace Testes.Infra.Arquivos.ModuloQuestao
     {
         public RepositorioQestaoEmArquivo(DataContext dataContext) : base(dataContext)
         {
+            if (dataContext.Quetoes != null && dataContext.Quetoes.Count > 0)
+            {
+                this.contador = dataContext.Quetoes.Max(x => x.Numero);
+            }
         }
 
         public override List<Questao> ObterRegistros()
         {
-            return dataContext.Questao;
+            return dataContext.Quetoes;
         }
 
         public override AbstractValidator<Questao> ObterValidador()
